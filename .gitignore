@@ -1,0 +1,6 @@
+/data/
+*.tar.gz
+.venv/
+.idea/
+__pycache__/
+*.pyc

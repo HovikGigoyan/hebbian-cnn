@@ -1,0 +1,39 @@
+seed: 42
+device: auto
+num_workers: 0
+output_dir: outputs
+
+data:
+  root: data
+  dataset: fashion_mnist
+  batch_size: 64
+  eval_batch_size: 128
+  val_split: 0.1
+  use_subset_fraction: 1.0
+  normalize: true
+  train_augmentation: true
+
+model:
+  in_channels: 3
+  num_classes: 10
+  conv1_channels: 32
+  conv2_channels: 64
+  kernel_size: 3
+  padding: 1
+  pooling: max
+
+train:
+  epochs: 12
+  lr: 0.001
+  weight_decay: 0.0001
+  optimizer: adam
+
+hebbian:
+  enabled: false
+  rule: oja
+  lr: 0.0005
+  normalize_filters: true
+  per_batch_update: true
+  use_relu_output: true
+  partial_layers: []
+  mode: full_hebb
