@@ -18,7 +18,7 @@ class HebbianConv2d(nn.Module):
         use_relu_output: bool = True,
     ) -> None:
         super().__init__()
-
+        self.hebbian_enabled = True
         self.in_channels = in_channels
         self.out_channels = out_channels
         self.kernel_size = kernel_size
@@ -52,6 +52,9 @@ class HebbianConv2d(nn.Module):
 
         if self.use_relu_output:
             y = F.relu(y)
+
+        if self.training and self.hebbian_enabled:
+            self.hebbian_update(x, y)
 
         self._last_output = y.detach()
         return y

@@ -1,5 +1,5 @@
 from __future__ import annotations
-from src.models.hebbian_layers import HebbianConv2d
+from models.hebbian_layers import HebbianConv2d
 import torch
 import torch.nn as nn
 
